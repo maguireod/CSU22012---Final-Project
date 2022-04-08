@@ -1,7 +1,4 @@
 import java.util.*;
-import java.io.*;
-import javax.swing.JOptionPane;
-
 /******************************************************************************
  *  Compilation:  javac TST.java
  *  Execution:    java TST < words.txt
