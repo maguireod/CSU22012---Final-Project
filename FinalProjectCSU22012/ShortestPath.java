@@ -12,8 +12,7 @@ public class ShortestPath {
 	public void intializeStorageVariables() {
 		int maximum = 0;
 		try {
-			File file = new File("stops.txt");
-		    Scanner f = new Scanner(file);
+		    Scanner f = new Scanner(new File("stops.txt"));
 		    f.nextLine();
 		    String [] values;
 		    while(f.hasNextLine()) {
@@ -37,9 +36,7 @@ public class ShortestPath {
 	}
 	
 	public void populateTripCosts() throws Exception {
-		File tranfers = new File("transfers.txt");
-		File stopTimes = new File("stop_times.txt");
-		Scanner readRows = new Scanner(tranfers);
+		Scanner readRows = new Scanner(new File("transfers.txt"));
 		readRows.nextLine();
 		String values[];
 		while(readRows.hasNextLine()) {
@@ -50,7 +47,7 @@ public class ShortestPath {
 				tripCosts[Integer.parseInt(values[0])][Integer.parseInt(values[1])] = 2;
 		}
 		readRows.close();
-		readRows = new Scanner(stopTimes);
+		readRows = new Scanner(new File("stop_times.txt"));
 		readRows.nextLine();
 		int lastRouteID; int currentRouteID = 0;
 		int currentStop; int nextStop = 0;
@@ -107,7 +104,7 @@ public class ShortestPath {
 	    path = path + "\n" + finish;
 		return "Cost = " + distanceToStop[finish] + ". Path listed below: " + path;
 	}
-	public static int busStopFetch(String entry) {
+	public int busStopFetch(String entry) {
 		JPanel screen = new JPanel();
 		String inputStatement = "Enter the " + entry + " Bus Stop:";
 		screen.add(new JLabel(inputStatement));
@@ -116,25 +113,23 @@ public class ShortestPath {
 		screen.add(inputField);
 		JOptionPane.showOptionDialog(null, screen, "Bus Management System", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, instructions, null);
 		try {
-			return Integer.parseInt(inputField.getText());
+			int stop;
+			if((stop = Integer.parseInt(inputField.getText())) < Stops && stop > 1)
+				return stop;
+			else {
+				JOptionPane.showMessageDialog(null, "Stop doesn't exist: Try again.");
+				return busStopFetch(entry);
+			}
+				
 		} catch(Exception e) {
 			JOptionPane.showMessageDialog(null, "Invalid input: Check the list of bus stops and try again.");
 			return busStopFetch(entry);
 		}
 	}
-	public static double[][] takeUserInput() throws Exception {
+	public static void takeUserInput() throws Exception {
 		ShortestPath busStops = new ShortestPath();
 		busStops.intializeStorageVariables();
-		System.out.print(busStops.Stops);
-		int busStop1 = busStopFetch("first");
-		int busStop2 = busStopFetch("second");
-		String output = busStops.shortestPath(busStop1, busStop2) ;
+		String output = busStops.shortestPath( busStops.busStopFetch("first"), busStops.busStopFetch("second")) ;
 		JOptionPane.showMessageDialog(null, output);
-		return busStops.tripCosts;
 	}
-		
-	public static void main(String args[]) throws Exception{
-		takeUserInput();
-	}
-	
 }
