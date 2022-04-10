@@ -19,6 +19,7 @@ public class Interface {
 			if(quitReturn == 1) {exit = true;}
 		}
 	}
+	
 	public static void main(String[] args) throws Exception{
 		RunSystem();
 	}
