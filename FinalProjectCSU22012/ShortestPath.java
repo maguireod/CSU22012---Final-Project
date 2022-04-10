@@ -110,7 +110,7 @@ public class ShortestPath {
 		String inputStatement = "Enter the " + entry + " Bus Stop:";
 		screen.add(new JLabel(inputStatement));
 		Object[] instructions = {"Continue"};
-		JTextField inputField = new JTextField(3);
+		JTextField inputField = new JTextField(5);
 		screen.add(inputField);
 		JOptionPane.showOptionDialog(null, screen, "Bus Management System", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE, null, instructions, null);
 		try {

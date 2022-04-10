@@ -4,7 +4,6 @@ import javax.swing.*;
 
 public class SearchBusStop {
 	
-	// Implements TST Alogorithm
 	public static void takeUserInput() {
 		JPanel screen = new JPanel();
 		screen.add(new JLabel("Choose a Bus Stop Search Option:"));

@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 import javax.swing.*;
 public class SearchTripArrival <Key extends Comparable <Key>, Value> {
+	
 	private static class TripData{
 		public String trip_id;
 		public String departure_time;
