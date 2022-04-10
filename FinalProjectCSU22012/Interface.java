@@ -25,3 +25,6 @@ public class Interface {
 	}
 
 }
+//Bus stop names : HASTINGS ST FS HOLDOM AVE- WB
+// MOODY CENTRE STN BAY 5
+// MILLER RD AT DEEP BAY FLAGSTOP NB

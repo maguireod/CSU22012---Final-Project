@@ -77,7 +77,6 @@ public class SearchTripArrival <Key extends Comparable <Key>, Value> {
 			}
 			if(intTime < 0 || intTime > 235959) {
 				JOptionPane.showMessageDialog(null, "Times must be between 00:00:00 - 23:59:59. Try again");
-				takeUserInput();
 			}
 			try {
 				SearchTripArrival<String, String> map = new SearchTripArrival<String, String>();
