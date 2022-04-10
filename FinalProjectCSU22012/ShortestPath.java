@@ -9,6 +9,7 @@ public class ShortestPath {
 	public double[][] tripCosts;
 	public double[] distanceToStop;
 	public int[] previousStop;
+	
 	public void intializeStorageVariables() {
 		int maximum = 0;
 		try {

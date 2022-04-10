@@ -37,17 +37,30 @@ public class SearchBusStop {
     	}
     }
     public static String move(String stop) {
-    	if(Character.isWhitespace(stop.charAt(2))) {
-    		int extend = stop.length() + 3;
-    		char[] arrayExtended = new char[extend];
+    	String newStop = stop;
+    	char[]arrayExtended;
+    	int extend;
+    	if(stop.contains("FLAGSTOP")) { 
+    		extend = stop.length() + 9;
+    		arrayExtended = new char[extend];
     		for(int i = 0; i < stop.length(); i ++) 
     			arrayExtended[i] = stop.charAt(i);
-    		arrayExtended[extend -3] = ' ';
+    		arrayExtended[extend-9] =  ' ';
+    		for(int i = 8; i > 0; i--)
+    			arrayExtended[extend - i] = arrayExtended[8-i];
+    		newStop = String.valueOf(arrayExtended).substring(9);
+    	}
+    	if(Character.isWhitespace(newStop.charAt(2))) {
+    		extend = newStop.length() + 3;
+    		arrayExtended = new char[extend];
+    		for(int i = 0; i < newStop.length(); i++) 
+    			arrayExtended[i] = newStop.charAt(i);
+    		arrayExtended[extend - 3] = ' ';
     		arrayExtended[extend - 2] = arrayExtended[0];
     		arrayExtended[extend - 1] = arrayExtended[1];
-    		return String.valueOf(arrayExtended).substring(3);
+    		newStop = String.valueOf(arrayExtended).substring(3);
     	}
-    	return stop;
+    	return newStop;
     }
     public static void findUsingTST(int type, String input, TST<String> tst) {
     	String stops = "";

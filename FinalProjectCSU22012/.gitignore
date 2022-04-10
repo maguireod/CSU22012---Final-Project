@@ -3,3 +3,6 @@
 /SearchBusStop.class
 /SearchTripArrival.class
 /TST.class
+/TST$Node.class
+/SearchTripArrival$Trip.class
+/SearchTripArrival$TripData.class
