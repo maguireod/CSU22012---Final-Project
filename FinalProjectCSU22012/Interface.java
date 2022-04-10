@@ -25,6 +25,22 @@ public class Interface {
 	}
 
 }
-//Bus stop names : HASTINGS ST FS HOLDOM AVE- WB
-// MOODY CENTRE STN BAY 5
-// MILLER RD AT DEEP BAY FLAGSTOP NB
+/* 
+ * 646 -> 379
+ * 1 - doesn't exist
+ * 2 -> 17 no such path
+ * "Hello" invalid input
+ * 
+ * Bus Stop names: 
+ * HASTINGS ST FS HOLDOM AVE- WB
+ * MOODY CENTRE STN BAY 5
+ * MILLER RD AT DEEP BAY FLAGSTOP NB
+ * 
+ * 52534 & hello invalid form
+ * 5:25:34 for valid form
+ * 24:00:00 outside of time range.
+ */
+
+
+
+
